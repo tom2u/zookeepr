@@ -1,12 +1,8 @@
-const { animals } = require('./data/animals');
 const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 3001;
+const { animals } = require('./data/animals');
 
-function findById(id, animalsArray) {
-  const result = animalsArray.filter(animal => animal.id === id)[0];
-  return result;
-}
+const PORT = process.env.PORT || 3001;
+const app = express();
 
 function filterByQuery(query, animalsArray) {
   let personalityTraitsArray = [];
@@ -48,6 +44,10 @@ function filterByQuery(query, animalsArray) {
   return filteredResults;
 }
   
+function findById(id, animalsArray) {
+  const result = animalsArray.filter(animal => animal.id === id)[0];
+  return result;
+}
 
 app.get('/api/animals', (req, res) => {
     let results = animals;
@@ -64,6 +64,12 @@ app.get('/api/animals/:id', (req, res) => {
   } else {
     res.send(404);
   }
+});
+
+app.post('/api/animals', (req, res) => {
+  // req.body is where our incoming content will be
+  console.log(req.body);
+  res.json(req.body);
 });
 
 app.listen(PORT, () => {
