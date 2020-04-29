@@ -136,6 +136,16 @@
         "anxious"
       ],
       "id": "13"
+    },
+    {
+      "name": "Tito",
+      "species": "Three Toed Sloth",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "loving",
+        "goofy"
+      ],
+      "id": "14"
     }
   ]
 }
